@@ -1,21 +1,24 @@
 import axios from 'axios';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [name, setName] = useState()
   const [email,setEmail] = useState()
   const [password, setPassword] = useState()
+  const navigate = useNavigate()
 
   const handleSubmitReg =(e)=>{
      e.preventDefault()
-     axios.post("",{name,email,password})
-     .then(res => console.log(res))
+     axios.post("http://localhost:3001/register",{name,email,password})
+     .then(res => {console.log(res)
+      navigate("/login")
+     })
      .catch(err => console.log(err))
   }
 
   return (
-    <div className="">
+    <div>
       <div className="p-6 bg-white rounded-md max-w-[450px] mx-auto shadow-lg mt-20">
         <h2 className="py-5 text-center text-3xl">SignUp</h2>
         <form onSubmit={handleSubmitReg}>
