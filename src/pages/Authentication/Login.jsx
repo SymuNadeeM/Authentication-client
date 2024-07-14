@@ -14,8 +14,7 @@ const Login = () => {
       console.log(res)
        if(res.data === "Success"){
         navigate("/")
-       }
-      
+       }      
      })
      .catch(err => console.log(err))
   }

@@ -11,7 +11,7 @@ const SignUp = () => {
   const handleSubmitReg =(e)=>{
      e.preventDefault()
      axios.post("http://localhost:3001/register",{name,email,password})
-     .then(res => {console.log(res)
+     .then(res => {console.log("Register data",res)
       navigate("/login")
      })
      .catch(err => console.log(err))
